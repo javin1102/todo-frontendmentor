@@ -1,11 +1,12 @@
 import TodoBox from "./components/TodoBox.tsx";
+import FilterItem from "./components/FilterItem.tsx";
 
 const FilterTodo = () => {
     return (
         <TodoBox className="justify-center gap-8">
-            <span>All</span>
-            <span>Active</span>
-            <span>Completed</span>
+            <FilterItem>All</FilterItem>
+            <FilterItem>Active</FilterItem>
+            <FilterItem>Completed</FilterItem>
         </TodoBox>
     )
 }
