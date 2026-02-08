@@ -28,7 +28,7 @@ const InputTodo = () => {
   };
 
   return (
-    <TodoBox className="gap-4">
+    <TodoBox className="gap-4 rounded-sm">
       <Checker onClick={handleAddTodo} enableCheck={false} />
       <input
         placeholder="Create a new todo.."

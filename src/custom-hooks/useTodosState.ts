@@ -1,5 +1,5 @@
 // useContextTodo.ts (new file)
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import type { Todo } from "../types/Todo";
 
 export const useTodosState = () => {
@@ -19,5 +19,8 @@ export const useTodosState = () => {
     setTodos((prev) => prev.filter((todo) => todo.id !== id));
   }, []);
 
-  return { todos, updateTodo, addTodo, removeTodo };
+  return useMemo(
+    () => ({ todos, updateTodo, addTodo, removeTodo }),
+    [todos, updateTodo, addTodo, removeTodo],
+  );
 };

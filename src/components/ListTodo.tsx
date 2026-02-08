@@ -25,18 +25,17 @@ import { useTodos } from "../custom-hooks/useTodos.tsx";
 //   },
 // ];
 const ListTodo = () => {
-  const { todos, updateTodo } = useTodos();
+  const { todos, updateTodo, removeTodo } = useTodos();
 
   return (
     <div className="w-full">
       <ul className="w-full">
-        {todos.map((item, index) => (
+        {todos.map((item) => (
           <TodoItem
             key={item.id}
-            roundedTop={index === 0}
-            roundedBottom={index === todos.length - 1}
             todoItem={item}
             updateTodo={updateTodo}
+            removeTodo={removeTodo}
           />
         ))}
       </ul>
