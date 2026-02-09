@@ -2,48 +2,24 @@ import TodoItem from "./TodoItem.tsx";
 import TodoBox from "./TodoBox.tsx";
 import { useTodos } from "../custom-hooks/useTodos.tsx";
 
-// const TodoListItem = [
-//   {
-//     id: 1,
-//     text: "Complete online JavaScript course",
-//   },
-//   {
-//     id: 2,
-//     text: "Jog around the park 3x",
-//   },
-//   {
-//     id: 3,
-//     text: "10 minutes meditation",
-//   },
-//   {
-//     id: 4,
-//     text: "Read for 1 hour",
-//   },
-//   {
-//     id: 5,
-//     text: "Pick up groceries",
-//   },
-// ];
 const ListTodo = () => {
   const { todos, updateTodo, removeTodo } = useTodos();
-
+  console.log("Rendering ListTodo");
   return (
-    <div className="w-full">
-      <ul className="w-full">
-        {todos.map((item) => (
-          <TodoItem
-            key={item.id}
-            todoItem={item}
-            updateTodo={updateTodo}
-            removeTodo={removeTodo}
-          />
-        ))}
-      </ul>
-      <TodoBox
-        className="justify-between rounded-b-sm"
-        roundedTop={false}
-        roundedBottom={true}
-      >
+    <div className="w-full rounded-sm overflow-clip shadow-lg">
+      {todos.length > 0 && (
+        <ul className="w-full">
+          {todos.map((item) => (
+            <TodoItem
+              key={item.id}
+              todoItem={item}
+              updateTodo={updateTodo}
+              removeTodo={removeTodo}
+            />
+          ))}
+        </ul>
+      )}
+      <TodoBox className="justify-between">
         <span className="text-sm text-gray-400 text-margin-fix">
           {todos.length} items left
         </span>

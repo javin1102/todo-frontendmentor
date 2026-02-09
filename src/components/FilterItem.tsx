@@ -1,8 +1,9 @@
+import React from "react";
 import type { FilterType } from "../types/Filter";
 
 const FilterItem = ({
   isActive,
-  changeFilter: setFilter,
+  changeFilter,
   filterValue,
 }: {
   isActive?: boolean;
@@ -13,11 +14,11 @@ const FilterItem = ({
     <span
       className={`font-bold ${isActive ? "text-blue-500" : "text-gray-400"} cursor-pointer`}
       onClick={() => {
-        setFilter(filterValue);
+        changeFilter(filterValue);
       }}
     >
       {filterValue.charAt(0).toUpperCase() + filterValue.slice(1)}
     </span>
   );
 };
-export default FilterItem;
+export default React.memo(FilterItem);

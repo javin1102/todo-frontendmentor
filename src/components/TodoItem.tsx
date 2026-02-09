@@ -28,8 +28,8 @@ const TodoItem = ({
   );
 
   return (
-    <li className="first:rounded-t-lg overflow-hidden group">
-      <TodoBox className="gap-4">
+    <li className="overflow-hidden">
+      <TodoBox className="gap-4 ">
         <Checker enableCheck={true} onClick={setTodoComplete} />
         <p
           className={`text-margin-fix flex-1 ${todoItem.completed && "line-through text-gray-400"}`}
