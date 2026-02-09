@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import TodoBox from "././TodoBox.tsx";
 import Checker from "./Checker.tsx";
 import type { Todo } from "../types/Todo.ts";
-import { useTodos } from "../custom-hooks/useTodos.tsx";
+import { ContextTodo } from "../contexts/ContextTodo.tsx";
+// import { useTodos } from "../custom-hooks/useTodos.tsx";
 
 const InputTodo = () => {
   const [todoString, setTodoString] = useState("");
-  const { addTodo } = useTodos();
-
+  const context = useContext(ContextTodo);
   const handleAddTodo = () => {
     if (todoString.trim() === "") return;
     const newTodo: Todo = {
@@ -16,8 +16,9 @@ const InputTodo = () => {
       completed: false,
     };
 
+    if (!context) return;
     console.log("Adding new todo:", todoString);
-    addTodo(newTodo);
+    context.addTodo(newTodo);
     setTodoString("");
   };
 

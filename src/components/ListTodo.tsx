@@ -40,7 +40,7 @@ const ListTodo = () => {
         ))}
       </ul>
       <TodoBox
-        className="justify-between"
+        className="justify-between rounded-b-sm"
         roundedTop={false}
         roundedBottom={true}
       >

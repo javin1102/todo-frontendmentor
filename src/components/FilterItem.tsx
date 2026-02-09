@@ -1,8 +1,23 @@
-import React from 'react'
+import type { FilterType } from "../types/Filter";
 
-const FilterItem = ({children}: { children?: React.ReactNode }) => {
-    return (
-        <span className="font-bold text-gray-400">{children}</span>
-    )
-}
-export default FilterItem
+const FilterItem = ({
+  isActive,
+  changeFilter: setFilter,
+  filterValue,
+}: {
+  isActive?: boolean;
+  changeFilter: (filter: FilterType) => void;
+  filterValue: FilterType;
+}) => {
+  return (
+    <span
+      className={`font-bold ${isActive ? "text-blue-500" : "text-gray-400"} cursor-pointer`}
+      onClick={() => {
+        setFilter(filterValue);
+      }}
+    >
+      {filterValue.charAt(0).toUpperCase() + filterValue.slice(1)}
+    </span>
+  );
+};
+export default FilterItem;
