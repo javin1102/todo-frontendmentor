@@ -3,7 +3,6 @@ import TodoBox from "././TodoBox.tsx";
 import Checker from "./Checker.tsx";
 import type { Todo } from "../types/Todo.ts";
 import { ContextTodo } from "../contexts/ContextTodo.tsx";
-// import { useTodos } from "../custom-hooks/useTodos.tsx";
 
 const InputTodo = () => {
   const [todoString, setTodoString] = useState("");
@@ -17,7 +16,6 @@ const InputTodo = () => {
     };
 
     if (!context) return;
-    console.log("Adding new todo:", todoString);
     context.addTodo(newTodo);
     setTodoString("");
   };
@@ -29,11 +27,11 @@ const InputTodo = () => {
   };
 
   return (
-    <TodoBox className="gap-4 rounded-sm">
+    <TodoBox className="gap-4 rounded-sm dark:text-white">
       <Checker onClick={handleAddTodo} isChecked={false} />
       <input
         placeholder="Create a new todo.."
-        className="h-fit mt-1.5 outline-none"
+        className="h-fit outline-none"
         id="todo"
         name="todo"
         value={todoString}

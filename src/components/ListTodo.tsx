@@ -12,7 +12,7 @@ const ListTodo = () => {
   return (
     <div className="w-full rounded-sm overflow-clip shadow-lg">
       {filteredTodos.length > 0 && (
-        <ul className="w-full">
+        <ul className="w-full dark:text-gray-300">
           {filteredTodos.map((item) => (
             <TodoItem
               key={item.id}
