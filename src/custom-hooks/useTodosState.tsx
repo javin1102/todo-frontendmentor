@@ -18,8 +18,12 @@ export const useTodosState = () => {
     setTodos((prev) => prev.filter((todo) => todo.id !== id));
   }, []);
 
+  const removeCompletedTodos = useCallback(() => {
+    setTodos((prev) => prev.filter((todo) => !todo.completed));
+  }, []);
+
   return useMemo(
-    () => ({ todos, updateTodo, addTodo, removeTodo }),
-    [todos, updateTodo, addTodo, removeTodo],
+    () => ({ todos, updateTodo, addTodo, removeTodo, removeCompletedTodos }),
+    [todos, updateTodo, addTodo, removeTodo, removeCompletedTodos],
   );
 };

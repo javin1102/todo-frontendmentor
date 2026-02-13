@@ -1,16 +1,10 @@
-import { useState } from "react";
-
 const Checker = ({
   onClick,
-  enableCheck = true,
+  isChecked,
 }: {
   onClick?: () => void;
-  enableCheck: boolean;
+  isChecked: boolean;
 }) => {
-  const [isChecked, setChecked] = useState(false);
-  const toggleChecked = () => {
-    setChecked((prev) => !prev);
-  };
   const checkedStyle = isChecked
     ? "bg-linear-to-br from-primary-gradient-1 to-primary-gradient-2"
     : "";
@@ -27,9 +21,6 @@ const Checker = ({
       onClick={() => {
         if (onClick != null) {
           onClick();
-        }
-        if (enableCheck) {
-          toggleChecked();
         }
       }}
     >

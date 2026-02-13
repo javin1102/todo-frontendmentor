@@ -30,7 +30,7 @@ const InputTodo = () => {
 
   return (
     <TodoBox className="gap-4 rounded-sm">
-      <Checker onClick={handleAddTodo} enableCheck={false} />
+      <Checker onClick={handleAddTodo} isChecked={false} />
       <input
         placeholder="Create a new todo.."
         className="h-fit mt-1.5 outline-none"
